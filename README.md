@@ -1,48 +1,51 @@
 # Office Relocation Optimization (Université Paris–Duchesse) — Large-Scale Linear Programming
 
-Optimization project addressing **office relocation during a multi-phase renovation** at Université Paris–Duchesse.
-The problem is modeled as a **large-scale linear program (LP)**, solved in **primal and dual** form, with verification of **strong duality** and **KKT conditions**, and interpretation of **shadow prices** to extract operational insights.
+Operations Research project addressing **office relocation during a multi-phase renovation** at Université Paris–Duchesse.
+
+The problem is modeled as a **large-scale Linear Program (LP)** and analyzed through:
+- **Primal + dual** formulations
+- Verification of **strong duality** and **KKT conditions**
+- Interpretation of **shadow prices** (dual variables) to extract operational insights
 
 ## Business context
 During renovation phases, teams must be temporarily relocated while respecting:
 - limited office capacities,
-- move/assignment constraints across phases,
-- operational feasibility requirements,
-- cost/penalty trade-offs (moves, deviations, unmet preferences, etc.).
+- multi-phase consistency constraints (who is where at each phase),
+- operational feasibility requirements.
 
-Goal: produce a **feasible relocation plan per phase** while minimizing the total operational cost/penalty.
+**Goal:** minimize the **total operational cost**, with an emphasis on **move minimization** across phases.
 
-## Model (high-level)
-- **Decision variables**: assignment / flow variables describing how people (or teams) are allocated/moved across offices and phases.
-- **Objective**: minimize total cost (e.g., moves + penalties for constraint violations/deviations).
-- **Constraints** (typical):
-  - capacity constraints per office/area,
+## Model (high level)
+- **Decision variables:** assignment / flow variables describing how people (or teams) are allocated and moved across offices and phases.
+- **Objective:** minimize the number/cost of moves (and possible penalties, depending on the formulation).
+- **Constraints (typical):**
+  - capacity constraints per office/zone,
   - flow conservation / phase-to-phase consistency,
-  - equality constraints for required allocations,
+  - required assignment equalities,
   - bounds and feasibility constraints.
 
 ## Solve + validation
-- Solve the **primal** LP and the associated **dual** problem.
-- Verify:
-  - **Strong duality** (primal objective equals dual objective at optimality),
-  - **KKT conditions** (complementary slackness + feasibility).
-- Use the dual variables to interpret **shadow prices**:
-  - quantify the marginal value of relaxing a capacity/equality constraint,
-  - identify the most critical bottlenecks in the renovation plan.
+This project:
+- solves the **primal** LP and the corresponding **dual** problem,
+- checks **strong duality** (primal optimum = dual optimum),
+- verifies **KKT conditions** (incl. complementary slackness),
+- uses dual variables to interpret **shadow prices**, e.g.:
+  - which capacity constraints are the most binding,
+  - where additional temporary capacity would reduce cost the most.
 
-## Results & insights (from the report)
-See the full write-up:
-- `ProjectMDS/Project_MDS_Bennat_Bessy_Mabrouk.pdf`
+## Where to find the full details
+- Final report (model + results + interpretation):  
+  `ProjectMDS/Project_MDS_Bennat_Bessy_Mabrouk.pdf`
+- Assignment statement/specification:  
+  `ProjectMDS/ProjectMDS_sujet.pdf`
+- Exported solutions (CSV):  
+  `ProjectMDS/solutionMDS/`
 
-Example insights supported by dual analysis:
-- which capacities are the tightest and how costly they are (shadow prices),
-- which constraints drive the solution structure,
-- where additional temporary capacity would reduce cost the most.
-
-## Repository contents
-- `ProjectMDS/ProjectMDS_sujet.pdf` — assignment statement / specification
-- `ProjectMDS/Project_MDS_Bennat_Bessy_Mabrouk.pdf` — final report (model + solution + analysis)
-- `ProjectMDS/solutionMDS/` — exported primal/dual solutions and indicators (CSV)
+## Repository structure
+- `ProjectMDS/`
+  - `ProjectMDS_sujet.pdf`
+  - `Project_MDS_Bennat_Bessy_Mabrouk.pdf`
+  - `solutionMDS/` — primal/dual solutions and indicators (CSV)
 
 ## Authors
 - Marwane Bennat — https://github.com/GitMarcode  
