@@ -103,7 +103,8 @@ python -m src.solve_q2 --out-dir outputs_q2
 
 ## Authors
 - Marwane Bennat — https://github.com/GitMarcode  
-- (Add teammates here)
+- Mohy Mabrouk
+- Alexis Bessy
 
 ## License
 MIT — see `LICENSE`.
