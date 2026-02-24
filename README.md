@@ -48,8 +48,9 @@ This project:
   - `solutionMDS/` — primal/dual solutions and indicators (CSV)
 
 ## Authors
-- Marwane Bennat — https://github.com/GitMarcode  
-- (Add teammates here)
+- Marwane Bennat
+- Mohy Mabrouk
+- Alexis Bessy
 
 ## License
 MIT — see `LICENSE`.
